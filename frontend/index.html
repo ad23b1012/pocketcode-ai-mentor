@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketCode AI Mentor — Interactive Demo</title>
+    <meta name="description" content="AI-powered mentor for PocketCode students. Explains concepts, debugs code, suggests improvements, and proposes project ideas using the Catrobat AI Tutor SDK.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero" id="hero">
+        <div class="hero-bg-effects">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="url(#logo-grad)"/>
+                        <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs><linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#F97316"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs>
+                    </svg>
+                </div>
+                <span class="brand-text">PocketCode <span class="accent">AI Mentor</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#demo">Demo</a>
+                <a href="https://github.com/Catrobat/catrobat-ai-tutor" target="_blank" class="nav-github">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                GSoC 2026 — Catrobat Organization
+            </div>
+            <h1 class="hero-title">
+                Your AI-Powered<br>
+                <span class="gradient-text">Coding Mentor</span><br>
+                for PocketCode
+            </h1>
+            <p class="hero-subtitle">
+                An intelligent, context-aware mentor that understands your Catrobat projects
+                and provides real-time guidance — from explaining loops to debugging complex scripts.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary">
+                    <span>Try Live Demo</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#architecture" class="btn btn-secondary">View Architecture</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Mentor Modes</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">SDK</span>
+                    <span class="stat-label">Native Kotlin</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">SSE</span>
+                    <span class="stat-label">Real-time Stream</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Capabilities</span>
+                <h2>What the AI Mentor Can Do</h2>
+                <p>Six specialized modes designed for the complete PocketCode learning journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-mode="explain">
+                    <div class="feature-icon" style="--accent: #3B82F6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                    </div>
+                    <h3>Explain Concepts</h3>
+                    <p>From variables and loops to design patterns — explanations adapted to the student's level.</p>
+                </div>
+                <div class="feature-card" data-mode="debug">
+                    <div class="feature-icon" style="--accent: #EF4444">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 10h.01M15 10h.01"/></svg>
+                    </div>
+                    <h3>Debug Issues</h3>
+                    <p>Analyses code context and error output to identify bugs and propose fixes.</p>
+                </div>
+                <div class="feature-card" data-mode="suggest">
+                    <div class="feature-icon" style="--accent: #10B981">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    </div>
+                    <h3>Suggest Code</h3>
+                    <p>Generates clean, well-structured Catrobat scripts from text prompts.</p>
+                </div>
+                <div class="feature-card" data-mode="translate">
+                    <div class="feature-icon" style="--accent: #8B5CF6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                    </div>
+                    <h3>Translate Projects</h3>
+                    <p>Explains downloaded community projects in simple, understandable terms.</p>
+                </div>
+                <div class="feature-card" data-mode="idea">
+                    <div class="feature-icon" style="--accent: #F59E0B">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3>Project Ideas</h3>
+                    <p>Creative project suggestions matched to the student's skill level.</p>
+                </div>
+                <div class="feature-card" data-mode="general">
+                    <div class="feature-icon" style="--accent: #EC4899">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3>General Chat</h3>
+                    <p>Free-form conversation about any programming topic or PocketCode question.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARCHITECTURE SECTION ===== -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">System Design</span>
+                <h2>Integration Architecture</h2>
+                <p>How the AI Mentor integrates with PocketCode via the Catrobat AI Tutor SDK</p>
+            </div>
+            <div class="arch-diagram">
+                <div class="arch-layer arch-app">
+                    <div class="arch-label">PocketCode App</div>
+                    <div class="arch-items">
+                        <div class="arch-item">Script Editor</div>
+                        <div class="arch-item">Formula Editor</div>
+                        <div class="arch-item">Stage Runner</div>
+                        <div class="arch-item">Project Browser</div>
+                    </div>
+                </div>
+                <div class="arch-arrow">
+                    <svg width="24" height="48" viewBox="0 0 24 48"><path d="M12 0v40M5 33l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    <span>Code Context + Errors</span>
+                </div>
+                <div class="arch-layer arch-sdk">
+                    <div class="arch-label">AI Tutor SDK (KMP)</div>
+                    <div class="arch-items">
+                        <div class="arch-item">AiMentorHelper</div>
+                        <div class="arch-item">AiTutorView</div>
+                        <div class="arch-item">Prompt Builder</div>
+                        <div class="arch-item">AI App Detection</div>
+                    </div>
+                </div>
+                <div class="arch-arrow">
+                    <svg width="24" height="48" viewBox="0 0 24 48"><path d="M12 0v40M5 33l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    <span>Intent / HTTP API</span>
+                </div>
+                <div class="arch-layer arch-backend">
+                    <div class="arch-label">AI Backend (FastAPI)</div>
+                    <div class="arch-items">
+                        <div class="arch-item">Chat Endpoint</div>
+                        <div class="arch-item">SSE Streaming</div>
+                        <div class="arch-item">Project Analyzer</div>
+                        <div class="arch-item">Prompt Engine</div>
+                    </div>
+                </div>
+                <div class="arch-arrow">
+                    <svg width="24" height="48" viewBox="0 0 24 48"><path d="M12 0v40M5 33l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    <span>LLM API Call</span>
+                </div>
+                <div class="arch-layer arch-llm">
+                    <div class="arch-label">LLM Provider</div>
+                    <div class="arch-items">
+                        <div class="arch-item">OpenAI / GPT-4o</div>
+                        <div class="arch-item">Gemini</div>
+                        <div class="arch-item">Claude</div>
+                        <div class="arch-item">Local LLM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DEMO SECTION ===== -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive</span>
+                <h2>Try the AI Mentor</h2>
+                <p>Experience the AI Mentor in action — select a mode and ask a question</p>
+            </div>
+            <div class="demo-container">
+                <!-- Sidebar -->
+                <div class="demo-sidebar">
+                    <div class="mode-selector">
+                        <h4>Mentor Mode</h4>
+                        <div class="mode-buttons">
+                            <button class="mode-btn active" data-mode="general" id="mode-general">
+                                <span class="mode-icon">💬</span> General
+                            </button>
+                            <button class="mode-btn" data-mode="explain" id="mode-explain">
+                                <span class="mode-icon">📖</span> Explain
+                            </button>
+                            <button class="mode-btn" data-mode="debug" id="mode-debug">
+                                <span class="mode-icon">🐛</span> Debug
+                            </button>
+                            <button class="mode-btn" data-mode="suggest" id="mode-suggest">
+                                <span class="mode-icon">💡</span> Suggest
+                            </button>
+                            <button class="mode-btn" data-mode="translate" id="mode-translate">
+                                <span class="mode-icon">🌐</span> Translate
+                            </button>
+                            <button class="mode-btn" data-mode="idea" id="mode-idea">
+                                <span class="mode-icon">⚡</span> Ideas
+                            </button>
+                        </div>
+                    </div>
+                    <div class="context-panel">
+                        <h4>Code Context <span class="optional">(optional)</span></h4>
+                        <textarea id="code-context" placeholder="Paste your Catrobat script here...&#10;&#10;Example:&#10;When green flag clicked&#10;  Forever&#10;    If touching [edge]&#10;      Turn 180 degrees&#10;    Move 10 steps"></textarea>
+                    </div>
+                    <div class="context-panel">
+                        <h4>Error Output <span class="optional">(optional)</span></h4>
+                        <textarea id="error-context" placeholder="Paste any error messages here..."></textarea>
+                    </div>
+                    <div class="quick-prompts">
+                        <h4>Quick Prompts</h4>
+                        <div class="prompt-chips" id="prompt-chips">
+                            <button class="chip" data-prompt="What are variables in PocketCode?">Variables</button>
+                            <button class="chip" data-prompt="Explain how loops work in Catrobat">Loops</button>
+                            <button class="chip" data-prompt="How do I make a sprite move?">Movement</button>
+                            <button class="chip" data-prompt="What are broadcast messages?">Events</button>
+                            <button class="chip" data-prompt="How to add clones in PocketCode?">Cloning</button>
+                            <button class="chip" data-prompt="Suggest a beginner game project idea">Game Ideas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="demo-chat">
+                    <div class="chat-header">
+                        <div class="chat-title">
+                            <div class="ai-avatar">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            </div>
+                            <div>
+                                <span class="chat-name">AI Mentor</span>
+                                <span class="chat-status" id="chat-status">Ready</span>
+                            </div>
+                        </div>
+                        <button class="clear-btn" id="clear-chat" title="Clear chat">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                        </button>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message message-ai">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Hey there! 👋 I'm your <strong>PocketCode AI Mentor</strong>.</p>
+                                <p>I can help you with:</p>
+                                <ul>
+                                    <li>📖 <strong>Explaining</strong> programming concepts</li>
+                                    <li>🐛 <strong>Debugging</strong> your Catrobat scripts</li>
+                                    <li>💡 <strong>Suggesting</strong> code improvements</li>
+                                    <li>🌐 <strong>Translating</strong> community projects</li>
+                                    <li>⚡ <strong>Generating</strong> project ideas</li>
+                                </ul>
+                                <p>Select a mode and ask me anything!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-suggestions" id="chat-suggestions" style="display: none;">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="chat-input-area">
+                        <div class="input-wrapper">
+                            <textarea id="chat-input" placeholder="Ask your AI Mentor..." rows="1"></textarea>
+                            <button class="send-btn" id="send-btn" title="Send message">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            </button>
+                        </div>
+                        <div class="input-footer">
+                            <span class="demo-note">Demo mode — responses are simulated locally</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TECH STACK SECTION ===== -->
+    <section class="tech-stack" id="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technology</span>
+                <h2>Built With</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🟠</div>
+                    <h4>Kotlin (KMP)</h4>
+                    <p>AI Tutor SDK & Android integration</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🐍</div>
+                    <h4>Python / FastAPI</h4>
+                    <p>Backend API with SSE streaming</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h4>Jetpack Compose</h4>
+                    <p>Native Android UI for the mentor</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🧠</div>
+                    <h4>GPT-4o / Gemini</h4>
+                    <p>LLM-powered responses</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔄</div>
+                    <h4>SSE Streaming</h4>
+                    <p>Real-time token-by-token output</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📱</div>
+                    <h4>Android Intents</h4>
+                    <p>Bridge to installed AI apps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-text">PocketCode <span class="accent">AI Mentor</span></span>
+                    <p>GSoC 2026 PoC — Catrobat Organization</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/Catrobat/catrobat-ai-tutor" target="_blank">AI Tutor SDK</a>
+                    <a href="https://catrobat.org" target="_blank">Catrobat.org</a>
+                    <a href="https://share.catrob.at" target="_blank">PocketCode Community</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Licensed under AGPL-3.0 — International Catrobat Association</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
