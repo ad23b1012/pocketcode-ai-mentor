@@ -222,13 +222,15 @@ curl -X POST http://localhost:8000/api/mentor/chat \
 
 ## 📋 GSoC Timeline (Proposed)
 
-| Phase | Weeks | Tasks |
-|-------|-------|-------|
-| **Community Bonding** | 1-4 | Study PocketCode codebase, set up dev environment, finalize API design |
-| **Phase 1** | 5-8 | Backend API (chat, streaming, project analysis), prompt engineering |
-| **Phase 2** | 9-12 | Kotlin integration into PocketCode, SDK wiring, UI polish |
-| **Phase 3** | 13-16 | Testing, user feedback loops, documentation |
-| **Final** | 17-18 | Performance optimization, deployment, final report |
+*(Based on a 350-hour project / ~10 weeks of coding)*
+
+| Phase | Duration | Tasks |
+|-------|----------|-------|
+| **Community Bonding** | Pre-Coding | Study PocketCode codebase, set up dev environment, finalize API design |
+| **Phase 1: Backend** | Weeks 1-3 | Backend API (chat, streaming, project analysis), prompt engineering |
+| **Phase 2: Integration** | Weeks 4-6 | Kotlin integration into PocketCode, SDK wiring, UI implementation |
+| **Phase 3: Refinement** | Weeks 7-8 | Testing, user feedback loops, documentation |
+| **Final Polish** | Weeks 9-10 | Performance optimization, deployment, final GSoC report |
 
 ---
 
