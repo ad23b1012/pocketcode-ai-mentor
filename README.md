@@ -234,13 +234,6 @@ curl -X POST http://localhost:8000/api/mentor/chat \
 
 ---
 
-## 🤝 Mentors
-
-- **Paul Spiesberger** — [@spipau](https://github.com/spipau)
-- **Wolfgang Slany** — Catrobat project lead
-
----
-
 ## 📄 License
 
 This project is licensed under the **GNU Affero General Public License v3.0** — see [LICENSE](LICENSE) for details.
